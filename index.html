@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume Generator</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      height: 100vh;
+      background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+    }
+
+    .left, .right {
+      padding: 30px;
+      width: 50%;
+      overflow-y: auto;
+    }
+
+    .left {
+      background-color: #f7f2fb;
+      border-right: 2px solid #ccc;
+    }
+
+    .left h2 {
+      margin-top: 0;
+      color: #663399;
+    }
+
+    .left input, .left textarea {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .right {
+      background-color: white;
+    }
+
+    .resume {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .resume h1 {
+      color: #663399;
+      margin-bottom: 5px;
+    }
+
+    .resume h3 {
+      margin-top: 30px;
+      color: #444;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+
+    .resume p {
+      line-height: 1.6;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="left">
+    <h2>Fill Your Details</h2>
+    <input type="text" placeholder="Your Full Name" oninput="update('name', this.value)">
+    <input type="text" placeholder="Your Title (e.g. Student, Web Dev)" oninput="update('title', this.value)">
+    <textarea rows="3" placeholder="About You / Bio" oninput="update('about', this.value)"></textarea>
+    <input type="text" placeholder="Skills (comma-separated)" oninput="update('skills', this.value)">
+    <input type="text" placeholder="Email" oninput="update('email', this.value)">
+    <input type="text" placeholder="Phone" oninput="update('phone', this.value)">
+    <textarea rows="3" placeholder="Education" oninput="update('education', this.value)"></textarea>
+    <textarea rows="3" placeholder="Experience" oninput="update('experience', this.value)"></textarea>
+  </div>
+
+  <div class="right">
+    <div class="resume">
+      <h1 id="name">Your Name</h1>
+      <p id="title"><em>Your Title</em></p>
+
+      <h3>About Me</h3>
+      <p id="about">Tell us about yourself...</p>
+
+      <h3>Skills</h3>
+      <p id="skills">HTML, CSS, JavaScript</p>
+
+      <h3>Contact</h3>
+      <p id="email">your@email.com</p>
+      <p id="phone">1234567890</p>
+
+      <h3>Education</h3>
+      <p id="education">Your education details here</p>
+
+      <h3>Experience</h3>
+      <p id="experience">Your work or project experience</p>
+    </div>
+  </div>
+
+  <script>
+    function update(id, value) {
+      document.getElementById(id).textContent = value || `Your ${id.charAt(0).toUpperCase() + id.slice(1)}`;
+    }
+  </script>
+
+</body>
+</html>
